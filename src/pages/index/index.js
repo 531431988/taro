@@ -7,7 +7,6 @@ export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   };
-
   componentWillMount() {
     api.$get('user').then(res => {
       console.log(res.data);

@@ -5,19 +5,21 @@ import config from './config';
 const token = '';
 
 const baseOptions = (params, method = 'GET') => {
+  Taro.showLoading({
+    title: '玩命加载中…'
+  });
   let { url, data } = params;
   // let token = getApp().globalData.token
   // if (!token) login()
   let contentType = 'application/json';
   contentType = params.contentType || contentType;
   const option = {
-    // isShowLoading: false,
-    // loadingText: '正在加载',
     url: config.url + url,
     data: data,
     method: method,
     header: { 'content-type': contentType, token: token },
     success(res) {
+      Taro.hideLoading();
       if (res.statusCode === 200) {
         return res.data;
       } else {
@@ -41,7 +43,3 @@ export default {
     return baseOptions(params, 'POST');
   }
 };
-
-// 调用方式
-// import api from '../api'
-// api.$get('news/list', params)

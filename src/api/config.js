@@ -1,5 +1,5 @@
 export default {
-  url: 'https://easy-mock.com/mock/5ce654e86926b97f15f6c154/example/',
+  url: 'https://easy-mock.com/mock/5ce654e86926b97f15f6c154/',
   codeMessage: {
     200: '服务器成功返回请求的数据。',
     201: '新建或修改数据成功。',
