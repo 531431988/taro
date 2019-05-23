@@ -9,8 +9,8 @@ export default class Index extends Component {
   };
 
   componentWillMount() {
-    api.$get('news').then(res => {
-      console.log(res);
+    api.$get('user').then(res => {
+      console.log(res.data);
     });
   }
 
@@ -24,7 +24,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View className='index'>
+      <View>
         <Text className={styles.text}>Hello world!</Text>
       </View>
     );

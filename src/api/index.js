@@ -4,40 +4,41 @@ import config from './config';
 
 const token = '';
 
-export default {
-  baseOptions(params, method = 'GET') {
-    let { url, data } = params;
-    // let token = getApp().globalData.token
-    // if (!token) login()
-    let contentType = 'application/json';
-    contentType = params.contentType || contentType;
-    const option = {
-      // isShowLoading: false,
-      // loadingText: '正在加载',
-      url: config.url + url,
-      data: data,
-      method: method,
-      header: { 'content-type': contentType, token: token },
-      success(res) {
-        if (res.statusCode === 200) {
-          return res.data;
-        } else {
-          return logError('api', config.codeMessage[res.statusCode]);
-        }
-      },
-      error(err) {
-        logError('api', '请求接口出现问题', err);
+const baseOptions = (params, method = 'GET') => {
+  let { url, data } = params;
+  // let token = getApp().globalData.token
+  // if (!token) login()
+  let contentType = 'application/json';
+  contentType = params.contentType || contentType;
+  const option = {
+    // isShowLoading: false,
+    // loadingText: '正在加载',
+    url: config.url + url,
+    data: data,
+    method: method,
+    header: { 'content-type': contentType, token: token },
+    success(res) {
+      if (res.statusCode === 200) {
+        return res.data;
+      } else {
+        return logError('api', config.codeMessage[res.statusCode]);
       }
-    };
-    return Taro.request(option);
-  },
+    },
+    error(err) {
+      logError('api', '请求接口出现问题', err);
+    }
+  };
+  return Taro.request(option).then(res => res.data);
+};
+
+export default {
   $get(url, data = '') {
     let option = { url, data };
-    return this.baseOptions(option);
+    return baseOptions(option);
   },
-  $post: function(url, data, contentType) {
+  $post(url, data, contentType) {
     let params = { url, data, contentType };
-    return this.baseOptions(params, 'POST');
+    return baseOptions(params, 'POST');
   }
 };
 

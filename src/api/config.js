@@ -1,5 +1,5 @@
 export default {
-  url: 'https://api.github.com/repos/',
+  url: 'https://easy-mock.com/mock/5ce654e86926b97f15f6c154/example/',
   codeMessage: {
     200: '服务器成功返回请求的数据。',
     201: '新建或修改数据成功。',
