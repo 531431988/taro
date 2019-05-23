@@ -5,7 +5,10 @@ import styles from './index.module.scss';
 
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '首页',
+    usingComponents: {
+      'wux-button': '../../plugins/wux-weapp/button/index'
+    }
   };
   componentWillMount() {
     api.$get('user').then(res => {
@@ -25,6 +28,7 @@ export default class Index extends Component {
     return (
       <View>
         <Text className={styles.text}>Hello world!</Text>
+        <wux-button>按钮</wux-button>
       </View>
     );
   }
