@@ -27,6 +27,7 @@ const baseOptions = (params, method = 'GET') => {
       }
     },
     error(err) {
+      Taro.hideLoading();
       logError('api', '请求接口出现问题', err);
     }
   };
