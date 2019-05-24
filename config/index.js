@@ -35,13 +35,17 @@ const config = {
   },
   alias: {
     '@': resolve('src'),
-    _c: resolve('src/components')
+    _c: resolve('src/components'),
+    assets: resolve('src/assets'),
+    api: resolve('src/api')
   },
   // 全局变量设置
   defineConstants: {},
   copy: {
     patterns: [],
-    options: {}
+    options: {
+      ignore: ['*.scss', '*.css', '&.less'] // 全局的 ignore
+    }
   },
   weapp: {
     module: {

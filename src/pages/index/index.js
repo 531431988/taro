@@ -1,7 +1,9 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text } from '@tarojs/components';
+import { View, Text, Image } from '@tarojs/components';
+import Aicon from '_c/Aicon';
 import api from '@/api';
 import styles from './index.module.scss';
+import hotDog from '@/assets/hot-dog.svg';
 
 export default class Index extends Component {
   config = {
@@ -29,6 +31,8 @@ export default class Index extends Component {
       <View>
         <Text className={styles.text}>Hello world!</Text>
         <wux-button>按钮</wux-button>
+        <Image src={hotDog} />
+        <Aicon type='like' />
       </View>
     );
   }
