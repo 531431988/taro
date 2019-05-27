@@ -5,15 +5,13 @@ import WXflex from 'wx/flex';
 import WXtitle from 'wx/title';
 import WXheader from 'wx/header';
 // import api from '@/api';
-import styles from './index.module.scss';
+import { AtIcon, AtButton } from 'taro-ui';
+import './index.scss';
 import hotDog from '@/assets/hot-dog.svg';
 
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '首页',
-    usingComponents: {
-      'wux-button': '../../plugins/wux-weapp/button/index'
-    }
+    navigationBarTitleText: '首页'
   };
   componentWillMount() {
     // api.$get('user').then(res => {
@@ -32,11 +30,13 @@ export default class Index extends Component {
   render() {
     return (
       <View>
-        <WXheader bgImage='https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg'>标题</WXheader>
-        <Text className={styles.text}>Hello world!</Text>
+        {/* <WXheader src='https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg'>标题</WXheader> */}
+        <WXheader className='bg-gradual-blue t-white'>布局</WXheader>
+        <AtIcon value='clock' />
+        <AtButton type='primary'>按钮文案</AtButton>
+        <Text>Hello world!</Text>
         <WXicon type='like' />
         <WXflex align='middle'>
-          <wux-button long>按钮</wux-button>
           <Image src={hotDog} style={{ width: '200px' }} />
         </WXflex>
         <WXtitle>111</WXtitle>

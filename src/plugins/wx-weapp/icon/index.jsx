@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
+import './index.scss';
 
 class WXicon extends Component {
   static options = {

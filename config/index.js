@@ -78,12 +78,13 @@ const config = {
     }
   },
   h5: {
+    esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',
     module: {
       postcss: {
         autoprefixer: {
-          enable: true,
+          enable: false,
           config: {
             browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
           }
