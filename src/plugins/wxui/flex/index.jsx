@@ -1,9 +1,11 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import classnames from 'classnames';
-import './index.scss';
 
 class WXflex extends Component {
+  static options = {
+    addGlobalClass: true
+  };
   static defaultProps = {
     // 自动方向
     auto: 'right',
@@ -21,33 +23,27 @@ class WXflex extends Component {
   render() {
     const { children } = this.props;
     let className = classnames({
-      'vui-flex': true,
-      'vui-flex-dir-left': this.props.dir === 'left',
-      'vui-flex-dir-right': this.props.dir === 'right',
-      'vui-flex-dir-top': this.props.dir === 'top',
-      'vui-flex-dir-bottom': this.props.dir === 'bottom',
-      'vui-flex-left': this.props.justify === 'left',
-      'vui-flex-right': this.props.justify === 'right',
-      'vui-flex-center': this.props.justify === 'center',
-      'vui-flex-between': this.props.justify === 'between',
-      'vui-flex-around': this.props.justify === 'around',
-      'vui-flex-top': this.props.align === 'top',
-      'vui-flex-middle': this.props.align === 'middle',
-      'vui-flex-bottom': this.props.align === 'bottom',
-      'vui-flex-baseline': this.props.align === 'baseline',
-      'vui-flex-stretch': this.props.align === 'stretch',
-      'vui-flex-reverse': this.props.align === 'reverse',
-      // 'vui-flex-ver': $slots['scroll-y'] || $slots['scroll-x'],
-      'vui-flex-nowrap': !this.props.wrap,
-      'vui-flex-wrap': this.props.wrap
+      'wxui-flex': true,
+      'wxui-flex-dir-left': this.props.dir === 'left',
+      'wxui-flex-dir-right': this.props.dir === 'right',
+      'wxui-flex-dir-top': this.props.dir === 'top',
+      'wxui-flex-dir-bottom': this.props.dir === 'bottom',
+      'wxui-flex-left': this.props.justify === 'left',
+      'wxui-flex-right': this.props.justify === 'right',
+      'wxui-flex-center': this.props.justify === 'center',
+      'wxui-flex-between': this.props.justify === 'between',
+      'wxui-flex-around': this.props.justify === 'around',
+      'wxui-flex-top': this.props.align === 'top',
+      'wxui-flex-middle': this.props.align === 'middle',
+      'wxui-flex-bottom': this.props.align === 'bottom',
+      'wxui-flex-baseline': this.props.align === 'baseline',
+      'wxui-flex-stretch': this.props.align === 'stretch',
+      'wxui-flex-reverse': this.props.align === 'reverse',
+      // 'wxui-flex-ver': $slots['scroll-y'] || $slots['scroll-x'],
+      'wxui-flex-nowrap': !this.props.wrap,
+      'wxui-flex-wrap': this.props.wrap
     });
-
-    return (
-      <View className={className}>
-        {/* {auto === 'right' ? <view></view> :  } */}
-        {children}
-      </View>
-    );
+    return <View className={className}>{children}</View>;
   }
 }
 

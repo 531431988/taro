@@ -1,8 +1,21 @@
 import Taro, { Component } from '@tarojs/taro';
-import { Image } from '@tarojs/components';
+import { View, Image, Text } from '@tarojs/components';
+import { WXflex, WXcard } from 'wxui';
+import './index.scss';
 
 export default class Index extends Component {
+  static options = {
+    addGlobalClass: true
+  };
   render() {
-    return <Image src='https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg' />;
+    return (
+      <View>
+        <Image src='https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg' />
+        <WXflex>
+          <View className='demo-flex-item wxui-flex-item'>2</View>
+          <View className='demo-flex-item wxui-flex-item'>1</View>
+        </WXflex>
+      </View>
+    );
   }
 }
