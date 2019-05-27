@@ -1,12 +1,10 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { WXheader } from 'wxui';
 import { AtTabBar } from 'taro-ui';
+import About from '../about';
+import Basics from '../basics/home';
 
 export default class Index extends Component {
-  config = {
-    navigationBarTitleText: '首页'
-  };
   constructor() {
     super(...arguments);
     this.state = {
@@ -14,15 +12,23 @@ export default class Index extends Component {
     };
   }
   render() {
+    const { current } = this.state;
+    let renderDom = null;
+    if (current) {
+      renderDom = <About />;
+    } else {
+      renderDom = <Basics />;
+    }
     return (
       <View>
-        <WXheader src='https://image.weilanwl.com/color2.0/plugin/cjkz2329.jpg'>标题</WXheader>
+        {renderDom}
         <AtTabBar
           fixed
           tabList={[
-            { title: '自定义图标', iconType: 'bullet-list', text: 'new' },
-            { title: '拍照', iconType: 'camera' },
-            { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
+            { title: '基础', iconType: 'bullet-list', text: 'new' },
+            { title: '通用', iconType: 'camera', text: '100', max: '99' },
+            { title: '扩展', iconType: 'folder' },
+            { title: '关于', iconType: 'alert-circle' }
           ]}
           onClick={this.onClick}
           current={this.state.current}
@@ -30,9 +36,10 @@ export default class Index extends Component {
       </View>
     );
   }
-  handleClick = value => {
+  onClick = current => {
+    console.log(current);
     this.setState({
-      current: value
+      current
     });
   };
 }

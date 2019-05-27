@@ -12,3 +12,10 @@ navigator,
 image {
   box-sizing: border-box;
 }
+image {
+  width: 100%;
+}
+
+.bg-gradual-blue {
+  background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+}

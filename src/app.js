@@ -10,7 +10,7 @@ import './scss/WMlib.scss';
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index', 'pages/basics/home/index'],
+    pages: ['pages/index/index'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
