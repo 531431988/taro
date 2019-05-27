@@ -3,7 +3,7 @@ import { View } from '@tarojs/components';
 import classnames from 'classnames';
 import './index.scss';
 
-class Aflex extends Component {
+class WXflex extends Component {
   static defaultProps = {
     // 自动方向
     auto: 'right',
@@ -51,4 +51,4 @@ class Aflex extends Component {
   }
 }
 
-export default Aflex;
+export default WXflex;

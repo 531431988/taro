@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 
-class AIcon extends Component {
+class WXicon extends Component {
   static options = {
     addGlobalClass: true
   };
@@ -10,4 +10,4 @@ class AIcon extends Component {
     return <View className={`a-icon icon-${type}`} />;
   }
 }
-export default AIcon;
+export default WXicon;

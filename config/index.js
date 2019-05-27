@@ -37,6 +37,7 @@ const config = {
     '@': resolve('src'),
     _c: resolve('src/components'),
     assets: resolve('src/assets'),
+    wx: resolve('src/plugins/wx-weapp'),
     api: resolve('src/api')
   },
   // 全局变量设置

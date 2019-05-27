@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import './index.scss';
 
-class Atitle extends Component {
+class WXtitle extends Component {
   static defaultProps = {
     level: 1
   };
@@ -29,4 +29,4 @@ class Atitle extends Component {
     );
   }
 }
-export default Atitle;
+export default WXtitle;
