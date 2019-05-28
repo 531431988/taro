@@ -65,27 +65,8 @@
   background: $color-error;
   color: #fff;
 }
-//内块对齐
-//-----------------------------------------------------
-.block {
-  display: block;
-  width: 100%;
-}
-.inline-block {
-  display: inline-block;
-}
-.v-top {
-  vertical-align: top;
-}
-.v-middle {
-  vertical-align: middle;
-}
-.display-table {
-  display: table;
-  width: 100%;
-}
-.table-cell {
-  display: table-cell;
+
+.wxui-radius-sm {
 }
 
 //填充边距方法

@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { WXtitle, WXflex, WXcard, WXavatar, WXshadow } from 'wxui';
+import { WXtitle, WXflex, WXshadow } from 'wxui';
 
 class DemoCard extends Component {
   static options = {
@@ -13,10 +13,12 @@ class DemoCard extends Component {
   render() {
     const { title, subTitle } = this.props;
     return (
-      <WXshadow>
-        <WXflex dir='right'>111</WXflex>
+      <WXshadow className='wxui-radius-sm bg-white demo-card'>
+        <WXflex dir='right'>
+          <View className='title' />
+        </WXflex>
         <WXtitle title={title} />
-        <WXtitle title={subTitle} level='4' />
+        <WXtitle title={subTitle} level='4' color='#999' className='pt10' />
       </WXshadow>
     );
   }

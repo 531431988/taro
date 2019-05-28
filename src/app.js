@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
+import api from '@/api';
 import Index from './pages/index';
-// import './plugins/wxui/scss/index.scss';
 import './scss/WMlib.scss';
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -11,7 +11,7 @@ import './scss/WMlib.scss';
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index'],
+    pages: ['pages/index/index', 'pages/basics/auxiliary/index'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -21,7 +21,10 @@ class App extends Component {
     }
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    Taro.$get = api.$get;
+    Taro.$post = api.$post;
+  }
 
   componentDidShow() {}
 

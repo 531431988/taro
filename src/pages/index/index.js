@@ -5,8 +5,8 @@ import About from '../about';
 import Basics from '../basics/home';
 
 export default class Index extends Component {
-  constructor() {
-    super(...arguments);
+  constructor(props) {
+    super(props);
     this.state = {
       current: 0
     };

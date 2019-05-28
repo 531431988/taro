@@ -3,6 +3,7 @@
   position: relative;
   align-items: center;
   justify-content: space-between;
+  padding: 20px;
   &-level-1 {
     font-size: 36px;
   }
@@ -20,9 +21,6 @@
   }
   &-level-6 {
     font-size: 20px;
-  }
-  &-text {
-    margin-left: 30px;
   }
   &-type-line,
   &-type-dot {

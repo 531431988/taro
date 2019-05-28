@@ -9,18 +9,22 @@ class WXtitle extends Component {
     className: '',
     title: '',
     level: '1',
-    type: ''
+    type: '',
+    color: ''
   };
   constructor() {}
   render() {
-    const { className, type, level, title } = this.props;
+    const { className, type, level, title, color } = this.props;
     let renderDom = null;
     if (type === 'line') renderDom = <View className='wxui-title-type-line' />;
     else if (type === 'dot') renderDom = <View className='wxui-title-type-dot' />;
     return (
-      <View className={`wxui-title pd20 ${className} wxui-title-level-${level} ${type !== '' ? 'bg-white' : ''}`}>
+      <View className={`wxui-title ${className} wxui-title-level-${level} ${type !== '' ? 'bg-white' : ''}`}>
         <View>
-          {renderDom} <Text className='wxui-title-text'>{title}</Text>
+          {renderDom}{' '}
+          <Text className={`wxui-title-text ${type !== '' ? 'ml30' : ''}`} style={{ color }}>
+            {title}
+          </Text>
         </View>
         <View>{this.props.children}</View>
       </View>
