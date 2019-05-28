@@ -99,3 +99,34 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+@mixin col-size() {
+  .wxui-col {
+    box-sizing: border-box;
+    flex: 1;
+    //padding-left:.5rem;
+    //padding-right:.5rem;
+  }
+  //计算宽度
+  $width: 100%;
+  @for $i from 1 through 12 {
+    .wxui-col-#{$i} {
+      -ms-flex-preferred-size: $width / (12 / $i);
+      -webkit-flex-basis: $width / (12 / $i);
+      flex-basis: $width / (12 / $i);
+      max-width: $width / (12 / $i);
+      // -webkit-flex: 0 0 33.3333333333%;
+      // flex: 0 0 33.3333333333%;
+      // -webkit-box-flex: 0;
+      // max-width: 33.3333333333%;
+    }
+  }
+  // //计算位移
+  // @for $i from 1 through 12 {
+  //   .wxui-col-offset-#{$i} {
+  //     margin-left: $width / (12 / $i);
+  //   }
+  // }
+}
+
+@include col-size();

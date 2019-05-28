@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import './index.scss';
 
 class WXcard extends Component {
   static options = {

@@ -7,8 +7,10 @@ class WXflex extends Component {
     addGlobalClass: true
   };
   static defaultProps = {
-    // 自动方向
+    className: '',
+    // 自动宽的方向
     auto: 'right',
+    col: false,
     // 主轴起点
     dir: 'left',
     // 是否换行
@@ -21,29 +23,49 @@ class WXflex extends Component {
     align: 'top'
   };
   render() {
-    const { children } = this.props;
-    let className = classnames({
+    const { className, auto, col, dir, justify, align, wrap } = this.props;
+    let classNames = classnames({
       'wxui-flex': true,
-      'wxui-flex-dir-left': this.props.dir === 'left',
-      'wxui-flex-dir-right': this.props.dir === 'right',
-      'wxui-flex-dir-top': this.props.dir === 'top',
-      'wxui-flex-dir-bottom': this.props.dir === 'bottom',
-      'wxui-flex-left': this.props.justify === 'left',
-      'wxui-flex-right': this.props.justify === 'right',
-      'wxui-flex-center': this.props.justify === 'center',
-      'wxui-flex-between': this.props.justify === 'between',
-      'wxui-flex-around': this.props.justify === 'around',
-      'wxui-flex-top': this.props.align === 'top',
-      'wxui-flex-middle': this.props.align === 'middle',
-      'wxui-flex-bottom': this.props.align === 'bottom',
-      'wxui-flex-baseline': this.props.align === 'baseline',
-      'wxui-flex-stretch': this.props.align === 'stretch',
-      'wxui-flex-reverse': this.props.align === 'reverse',
+      'wxui-flex-dir-left': dir === 'left',
+      'wxui-flex-dir-right': dir === 'right',
+      'wxui-flex-dir-top': dir === 'top',
+      'wxui-flex-dir-bottom': dir === 'bottom',
+      'wxui-flex-left': justify === 'left',
+      'wxui-flex-right': justify === 'right',
+      'wxui-flex-center': justify === 'center',
+      'wxui-flex-between': justify === 'between',
+      'wxui-flex-around': justify === 'around',
+      'wxui-flex-top': align === 'top',
+      'wxui-flex-middle': align === 'middle',
+      'wxui-flex-bottom': align === 'bottom',
+      'wxui-flex-baseline': align === 'baseline',
+      'wxui-flex-stretch': align === 'stretch',
+      'wxui-flex-reverse': align === 'reverse',
       // 'wxui-flex-ver': $slots['scroll-y'] || $slots['scroll-x'],
-      'wxui-flex-nowrap': !this.props.wrap,
-      'wxui-flex-wrap': this.props.wrap
+      'wxui-flex-nowrap': !wrap,
+      'wxui-flex-wrap': wrap
     });
-    return <View className={className}>{children}</View>;
+    // 自动宽度的方向
+    let renderDom = null;
+    if (auto === 'right' && !col) {
+      renderDom = (
+        <View className={`${classNames} ${className}`}>
+          <View>{this.props.children}</View>
+          <View className='wxui-flex-item'>{this.props.renderAuto}</View>
+        </View>
+      );
+    }
+    if (auto === 'left') {
+      renderDom = (
+        <View className={`${classNames} ${className}`}>
+          <View className='wxui-flex-item'>{this.props.renderAuto}</View>
+          <View>{this.props.children}</View>
+        </View>
+      );
+    } else if (col) {
+      renderDom = <View className={`${classNames} ${className}`}>{this.props.children}</View>;
+    }
+    return renderDom;
   }
 }
 

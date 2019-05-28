@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import './index.scss';
 
 class WXavatar extends Component {
   static options = {
