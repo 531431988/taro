@@ -1,0 +1,19 @@
+.wxui-card {
+  &-full {
+    margin: 25px;
+  }
+  &-header {
+    background: #fff;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  &-body {
+    background: #fff;
+  }
+  &-footer {
+    background: #fff;
+    border-top: 1px solid #f1f1f1;
+  }
+  &-shadow {
+    box-shadow: 0rpx 0rpx 6rpx rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { AtIcon } from 'taro-ui';
+import WXicon from '../icon';
 import './index.scss';
 
 class WXheader extends Component {
@@ -56,7 +56,7 @@ class WXheader extends Component {
           style={style()}
         >
           <View className='back' onClick={this.onClick} v-if={this.props.isBack}>
-            <AtIcon value='chevron-left' />
+            <WXicon type='left' />
             <text>{this.props.backText}</text>
           </View>
           <View className='title' style={{ top: statusBar + 'px' }}>

@@ -14,12 +14,22 @@ export default class Index extends Component {
         {
           url: 'auxiliary/index',
           title: '辅助类',
-          subTitle: '内置快速布局样式'
+          subTitle: 'wxui class'
         },
         {
-          url: 'auxiliary/index',
-          title: '辅助类1',
-          subTitle: '内置快速布局样式'
+          url: 'title/index',
+          title: '标题组件',
+          subTitle: 'WXtitle'
+        },
+        {
+          url: 'shadow/index',
+          title: '阴影组件',
+          subTitle: 'WXshadow'
+        },
+        {
+          url: 'flex/index',
+          title: '弹性布局',
+          subTitle: 'WXflex'
         }
       ]
     };
@@ -41,7 +51,7 @@ export default class Index extends Component {
         <WXflex col className='pl5 pr5'>
           {list.map(item => (
             <View className='wxui-col-6' key={item.title}>
-              <Navigator url={`../../pages/basics/${item.url}`}>
+              <Navigator hover-class='none' url={`../../pages/basics/${item.url}`}>
                 <DemoCard title={item.title} subTitle={item.subTitle} />
               </Navigator>
             </View>

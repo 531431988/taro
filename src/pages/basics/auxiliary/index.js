@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
-import { WXheader, WXtitle, WXflex, WXcard, WXavatar, WXshadow } from 'wxui';
-import DemoCard from '_c/demo-card';
+import { WXheader, WXtitle, WXcard } from 'wxui';
 
 export default class Index extends Component {
   static options = {
@@ -13,8 +12,11 @@ export default class Index extends Component {
   }
   render() {
     return (
-      <View>
-        <WXheader className='bg-gradual-blue t-white'>辅助类</WXheader>1
+      <View className='page'>
+        <WXheader className='bg-gradual-blue t-white'>辅助类</WXheader>
+        <WXcard title='填充' full={false} renderFooter={<WXtitle className='pd20' level='3' title='页脚' />}>
+          <Image src='https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg' />
+        </WXcard>
       </View>
     );
   }
