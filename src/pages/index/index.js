@@ -20,7 +20,7 @@ export default class Index extends Component {
       renderDom = <Basics />;
     }
     return (
-      <View>
+      <View className='page'>
         {renderDom}
         <AtTabBar
           fixed

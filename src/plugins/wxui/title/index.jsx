@@ -1,30 +1,28 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
-import './index.scss';
+import { View, Text } from '@tarojs/components';
 
 class WXtitle extends Component {
-  static defaultProps = {
-    level: 1
+  static options = {
+    addGlobalClass: true
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: {
-        1: 36,
-        2: 32,
-        3: 28,
-        4: 24,
-        5: 22,
-        6: 20
-      }
-    };
-  }
+  static defaultProps = {
+    className: '',
+    title: '',
+    level: '1',
+    type: ''
+  };
+  constructor() {}
   render() {
-    const { children } = this.props;
-    const { size } = this.state;
+    const { className, type, level, title } = this.props;
+    let renderDom = null;
+    if (type === 'line') renderDom = <View className='wxui-title-type-line' />;
+    else if (type === 'dot') renderDom = <View className='wxui-title-type-dot' />;
     return (
-      <View className='a-title' style={{ fontSize: `${size[this.props.level]}rpx` }}>
-        {children}
+      <View className={`wxui-title pd20 ${className} wxui-title-level-${level} ${type !== '' ? 'bg-white' : ''}`}>
+        <View>
+          {renderDom} <Text className='wxui-title-text'>{title}</Text>
+        </View>
+        <View>{this.props.children}</View>
       </View>
     );
   }

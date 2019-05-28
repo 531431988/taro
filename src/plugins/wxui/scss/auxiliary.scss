@@ -1,0 +1,152 @@
+//对齐方式
+.tl {
+  text-align: left !important;
+}
+.tr {
+  text-align: right !important;
+}
+.tc {
+  text-align: center !important;
+}
+.tj {
+  text-align: justify;
+}
+.tn {
+  white-space: nowrap;
+}
+.b {
+  font-weight: 600;
+}
+.sub,
+.sup {
+  font-size: 70%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.sup {
+  top: -0.3em;
+}
+
+.sub {
+  bottom: -0.25em;
+}
+.t-black {
+  color: $color-text;
+}
+.t-white {
+  color: #fff;
+}
+
+.t-primary {
+  color: $color-primary;
+}
+.t-info {
+  color: $color-info;
+}
+.t-success {
+  color: $color-success;
+}
+.t-warning {
+  color: $color-warning;
+}
+.t-error {
+  color: $color-error;
+}
+.bg-white {
+  background: #fff;
+}
+.bg-primary {
+  background: $color-primary;
+  color: #fff;
+}
+.bg-error {
+  background: $color-error;
+  color: #fff;
+}
+//内块对齐
+//-----------------------------------------------------
+.block {
+  display: block;
+  width: 100%;
+}
+.inline-block {
+  display: inline-block;
+}
+.v-top {
+  vertical-align: top;
+}
+.v-middle {
+  vertical-align: middle;
+}
+.display-table {
+  display: table;
+  width: 100%;
+}
+.table-cell {
+  display: table-cell;
+}
+
+//填充边距方法
+//-----------------------------------------------------
+$list-padding-margin: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+@mixin padding-margin($className, $attr) {
+  @each $i in $list-padding-margin {
+    .#{$className}#{$i} {
+      #{$attr}: ($i) * 1px;
+    }
+  }
+}
+//默认填充
+//-----------------------------------------------------
+@include padding-margin(pd, padding);
+@include padding-margin(pt, padding-top);
+@include padding-margin(pr, padding-right);
+@include padding-margin(pb, padding-bottom);
+@include padding-margin(pl, padding-left);
+
+//默认边距
+//-----------------------------------------------------
+@include padding-margin(mt, margin-top);
+@include padding-margin(mr, margin-right);
+@include padding-margin(mb, margin-bottom);
+@include padding-margin(ml, margin-left);
+
+//单行文字溢出省略号
+//-----------------------------------------------------
+@mixin ell($multi-line: false, $line-clamp: 0, $box-orient: initial) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $multi-line==true {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: $line-clamp; // number行数
+    /*! autoprefixer: off */
+    -webkit-box-orient: $box-orient; //方向 vertical
+    /* autoprefixer: on */
+  } @else {
+    white-space: nowrap;
+    display: block;
+  }
+}
+.ell {
+  @include ell();
+}
+.ell-2 {
+  @include ell(true, 2, vertical);
+}
+.ell-3 {
+  @include ell(true, 3, vertical);
+}
+
+//显示隐藏
+//-----------------------------------------------------
+.show {
+  display: block;
+}
+.hide,
+[hidden],
+template {
+  display: none;
+}
