@@ -21,22 +21,22 @@ class WXheader extends Component {
       customBar: 1
     };
   }
-  componentWillMount() {
-    Taro.getSystemInfo({
-      success: e => {
-        let { statusBar, customBar } = this.state;
-        statusBar = e.statusBarHeight;
-        let custom = Taro.getMenuButtonBoundingClientRect();
-        customBar = custom.bottom + custom.top - e.statusBarHeight;
-        this.setState({
-          statusBar,
-          customBar
-        });
-      }
-    });
-  }
+  // componentWillMount() {
+  //   Taro.getSystemInfo({
+  //     success: e => {
+  //       let { statusBar, customBar } = this.state;
+  //       statusBar = e.statusBarHeight;
+  //       let custom = Taro.getMenuButtonBoundingClientRect();
+  //       customBar = custom.bottom + custom.top - e.statusBarHeight;
+  //       this.setState({
+  //         statusBar,
+  //         customBar
+  //       });
+  //     }
+  //   });
+  // }
   render() {
-    const { statusBar, customBar } = this.state;
+    const { statusBar, customBar } = Taro;
     const style = () => {
       var style = {
         height: `${customBar}px`,

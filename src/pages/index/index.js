@@ -20,7 +20,7 @@ export default class Index extends Component {
       renderDom = <Basics />;
     }
     return (
-      <View className='page'>
+      <View className='page' style={{ background: 'url(../../assets/banner-2.jpg)' }}>
         {renderDom}
         <AtTabBar
           fixed

@@ -8,14 +8,19 @@ class WXshadow extends Component {
   };
   static defaultProps = {
     className: '',
-    size: ''
+    size: '',
+    long: false
   };
   constructor() {
     this.state = {};
   }
   render() {
-    const { className, size } = this.props;
-    return <View className={`wxui-shadow wxui-shadow-${size} ${className}`}>{this.props.children}</View>;
+    const { className, size, long } = this.props;
+    return (
+      <View className={`wxui-shadow wxui-shadow-${size} ${long ? 'wxui-shadow-long' : ''} ${className}`}>
+        {this.props.children}
+      </View>
+    );
   }
 }
 export default WXshadow;

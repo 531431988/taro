@@ -11,7 +11,13 @@ import './scss/WMlib.scss';
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index', 'pages/basics/auxiliary/index'],
+    pages: [
+      'pages/index/index',
+      'pages/basics/auxiliary/index',
+      'pages/basics/title/index',
+      'pages/basics/shadow/index',
+      'pages/basics/flex/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -24,6 +30,15 @@ class App extends Component {
   componentDidMount() {
     Taro.$get = api.$get;
     Taro.$post = api.$post;
+    Taro.getSystemInfo({
+      success: e => {
+        let statusBar = e.statusBarHeight;
+        let custom = Taro.getMenuButtonBoundingClientRect();
+        let customBar = custom.bottom + custom.top - e.statusBarHeight;
+        Taro.statusBar = statusBar;
+        Taro.customBar = customBar;
+      }
+    });
   }
 
   componentDidShow() {}

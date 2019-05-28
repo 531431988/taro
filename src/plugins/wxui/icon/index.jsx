@@ -6,9 +6,15 @@ class WXicon extends Component {
   static options = {
     addGlobalClass: true
   };
+  static defaultProps = {
+    className: '',
+    type: '',
+    color: ''
+  };
+
   render() {
-    const { type } = this.props;
-    return <View className={`a-icon icon-${type}`} />;
+    const { className, type, color } = this.props;
+    return <View className={`a-icon icon-${type} ${className}`} style={{ color }} />;
   }
 }
 export default WXicon;
