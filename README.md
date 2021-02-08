@@ -1,6 +1,4 @@
-### 使用说明
-
----
+### Taro3.X 入门
 
 - 👽 安装：npm i 或 cnpm i 或 yarn add
 - 👽 运行：npm run dev:weapp 或 yarn dev:weapp
