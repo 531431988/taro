@@ -1,17 +1,15 @@
 <template>
   <view class="index">
     <view class="index">
-    <AtNoticebar marquee>
-      欢迎使用 Taro UI Vue
-    </AtNoticebar>
-    <AtButton
-      type="primary"
-      :on-click="handleClick"
-    >
-      AtButton
-    </AtButton>
-    <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
-  </view>
+      <AtNoticebar marquee>
+        欢迎使用 Taro UI Vue
+      </AtNoticebar>
+      <AtButton type="primary" :on-click="handleClick">
+        AtButton
+      </AtButton>
+      <AtToast :is-opened="show" :text="msg" :on-close="handleClose" />
+    </view>
+    {{ getNumbers }}
   </view>
 </template>
 
@@ -21,9 +19,9 @@ import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue'
 import "taro-ui-vue/dist/style/components/button.scss"
 import "taro-ui-vue/dist/style/components/toast.scss"
 import "taro-ui-vue/dist/style/components/noticebar.scss"
-import './index.less' 
+import './index.less'
 export default {
-    components: {
+  components: {
     AtButton,
     AtToast,
     AtNoticebar
@@ -34,13 +32,19 @@ export default {
       show: false
     }
   },
+  computed: {
+    getNumbers () {
+      return this.$store.getters.getNumbers;
+    }
+  },
   methods: {
     handleClick () {
       this.show = true
+      this.$store.dispatch('addNumber', parseInt(Math.random() * 100))
     },
     handleClose () {
       this.show = false
     }
   },
-    }
+}
 </script>
