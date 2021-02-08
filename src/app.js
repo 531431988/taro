@@ -1,6 +1,7 @@
 import Vue from "vue";
-import "./app.less";
+import "./app.scss";
 import store from "./store";
+import "./theme/index.scss";
 
 const App = new Vue({
   store,
