@@ -1,3 +1,4 @@
+const path = require("path");
 const config = {
   projectName: "taro-v3.x",
   date: "2021-2-8",
@@ -54,6 +55,9 @@ const config = {
       }
     },
     esnextModules: ["taro-ui-vue"]
+  },
+  alias: {
+    "@": path.resolve(__dirname, "..", "src")
   }
 };
 
