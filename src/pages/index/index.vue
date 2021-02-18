@@ -7,6 +7,7 @@
       <AtButton type="primary" :on-click="handleClick">
         AtButton
       </AtButton>
+      <FabMenu v-model="visible" :data="fabMenu" />
       <AtToast :is-opened="show" :text="msg" :on-close="handleClose" />
     </view>
     {{ getNumbers }}
@@ -20,12 +21,15 @@ export default {
   components: {
     AtButton,
     AtToast,
-    AtNoticebar
+    AtNoticebar,
+    FabMenu: () => import('@/components/FabMenu')
   },
   data () {
     return {
       msg: 'Hello world!',
-      show: false
+      show: false,
+      visible: false,
+      fabMenu: [{ text: '汛情', icon: 'bell' }, { text: '雨情', icon: 'clock' }, { text: '水情', icon: 'heart' }, { text: '预警', icon: 'eye' }]
     }
   },
   computed: {
@@ -44,7 +48,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .index {
   background: red;
 }
